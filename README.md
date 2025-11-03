@@ -1,20 +1,37 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Gemini Stylist Application
 
-# Run and deploy your AI Studio app
+## Overview
+Gemini Stylist is a web application that lets users upload a photo of themselves and input a style prompt (e.g., "dark and casual outfit for fall"). The app uses Google Gemini API to recommend a top and bottom from a predefined clothing inventory and then generates an image of the person wearing the selected outfit.
 
-This contains everything you need to run your app locally.
+The project consists of a **Python backend** for AI processing and a **frontend** for user interaction.
 
-View your app in AI Studio: https://ai.studio/apps/temp/1
+## Features
+- Upload a photo of a person
+- Input a natural language prompt describing the desired outfit
+- Get AI-recommended top and bottom clothing items from inventory
+- Generate and display an image of the person wearing the selected outfit
+- Returns the generated image as base64 for frontend display
 
-## Run Locally
+## Installation
 
-**Prerequisites:**  Node.js
+1. Clone the repository:
+```bash
+git clone <your-repo-url>
+cd project/backend
+
+2. Create a virtual environment
+python -m venv venv
+venv\Scripts\activate      # Windows
+# OR
+source venv/bin/activate   # macOS/Linux
+
+3. Install dependencies:
+pip install flask flask-cors pillow google-genai
 
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+## How it works
+
+- Frontend sends style prompt and person image to Flask backend
+- Backend calls Google Gemini API to choose top and bottom items from inventory
+- Backend generates a new image of the person wearing the selected outfit
+- Backend returns the image as base64; frontend displays it
